@@ -5,7 +5,15 @@
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
 
-    tags = {
+  tags = {
     Name = "main"
   }
-} 
+}
+
+resource "aws_subnet" "sub-1" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.15.0/24"
+  tags = {
+    Name = "Ashraf-Subnet1"
+  }
+}
