@@ -8,4 +8,14 @@ resource "aws_vpc" "main" {
     tags = {
     Name = "main"
   }
+
+  
 } 
+
+resource "aws_subnet" "mohit" {
+  vpc_id     = "vpc-059a338a887b0607a"
+  cidr_block = "10.0.1.0/24"
+  tags = {
+    Name = "mohitsubnet"
+  }
+}
