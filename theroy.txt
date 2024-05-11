@@ -1,0 +1,10 @@
+# Type of files we use
+
+main.tf
+varibles.tf 
+output.tf
+backend.tf 
+versions.tf 
+
+
+terraform_asd.tfstate -> .tfstate -> state file
