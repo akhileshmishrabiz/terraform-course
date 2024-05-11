@@ -19,3 +19,5 @@ second command -> terraform plan
 
 third command 
 terraform apply - deploy the resources
+
+ If you wish to attempt automatic migration of the state, use "terraform init -migrate-state".

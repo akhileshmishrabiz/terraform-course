@@ -6,16 +6,17 @@ resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
 
     tags = {
-    Name = "main"
+    Name = "main-vpc"
   }
 
-  
 } 
 
 resource "aws_subnet" "mohit" {
-  vpc_id     = "vpc-059a338a887b0607a"
+  vpc_id = aws_vpc.main.id   # Implicit dependency 
   cidr_block = "10.0.1.0/24"
   tags = {
     Name = "mohitsubnet"
   }
+
+  depends_on = [ aws_vpc.main ] # explict dependency 
 }
