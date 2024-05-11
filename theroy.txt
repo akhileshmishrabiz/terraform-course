@@ -8,3 +8,14 @@ versions.tf
 
 
 terraform_asd.tfstate -> .tfstate -> state file
+
+.terraform.lock.hcl -> lock the provider version
+
+# to start with terraform , first command you run is -> terraform init
+second command -> terraform plan 
++ -> adding / creating
+- -> destroying/deleting
+~ -> change/update
+
+third command 
+terraform apply - deploy the resources
