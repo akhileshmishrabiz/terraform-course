@@ -30,14 +30,18 @@ resource "aws_subnet" "mohit" {
   depends_on = [ aws_vpc.main ] # explict dependency 
 }
 
-resource "aws_instance" "web" {
-  ami           =var.ami
-  instance_type = var.instance_type
-  availability_zone = var.availability_zone
-  subnet_id = aws_subnet.mohit.id
-  security_groups = [aws_security_group.allow_ssh.id] # implict dependency 
+# route table
+resource "aws_route_table" "example" {
+  vpc_id = aws_vpc.main.id
+}
+# attach route to subnet 
+resource "aws_route_table_association" "a" {
+  subnet_id      = aws_subnet.mohit.id
+  route_table_id = aws_route_table.example.id
+}
 
-  tags = {
-    Name = "terraform-ec2-1"
-  }
+resource "aws_route" "r" {
+  route_table_id            = aws_route_table.example.id
+  destination_cidr_block    = "0.0.0.0/0"
+  gateway_id = aws_internet_gateway.gw.id
 }
