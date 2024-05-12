@@ -24,7 +24,7 @@ resource "aws_subnet" "mohit" {
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           =var.ami
   instance_type = var.instance_type
   availability_zone = var.availability_zone
   subnet_id = aws_subnet.mohit.id
