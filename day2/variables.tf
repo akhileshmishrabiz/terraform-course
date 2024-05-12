@@ -18,15 +18,15 @@ variable "availability_zone" {
 }
 
 variable "subnet_cidr" {
-  type = map()
+  type = map(string)
   default = {
-    subnet1: "10.10.1.0/24",
-    subnet2: "10.10.2.0/24"
+    subnet1: "10.0.1.0/24",
+    subnet2: "10.0.2.0/24"
   }
 }
 
 variable "subnet_name" {
-  type =  list() 
+  type =  list(string) 
   default = [
     "mohit",
     "meet"
