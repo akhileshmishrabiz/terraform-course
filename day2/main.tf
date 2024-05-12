@@ -28,6 +28,8 @@ resource "aws_instance" "web" {
   instance_type = var.instance_type
   availability_zone = var.availability_zone
   subnet_id = aws_subnet.mohit.id
+  associate_public_ip_address = True
+  security_groups = [aws_security_group.allow_ssh.id]
 
   tags = {
     Name = "terraform-ec2-1"
