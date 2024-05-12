@@ -21,3 +21,6 @@ third command
 terraform apply - deploy the resources
 
  If you wish to attempt automatic migration of the state, use "terraform init -migrate-state".
+
+
+To provide the value of a vatriable, use .tfvars files
