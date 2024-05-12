@@ -16,3 +16,29 @@ variable "instance_type" {
 variable "availability_zone" {
   type = string
 }
+
+variable "subnet_cidr" {
+  type = map()
+  default = {
+    subnet1: "10.10.1.0/24",
+    subnet2: "10.10.2.0/24"
+  }
+}
+
+variable "subnet_name" {
+  type =  list() 
+  default = [
+    "mohit",
+    "meet"
+  ] 
+}
+
+
+
+
+
+
+
+
+
+

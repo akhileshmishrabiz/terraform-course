@@ -20,11 +20,23 @@ resource "aws_internet_gateway" "gw" {
 }
 resource "aws_subnet" "mohit" {
   vpc_id = aws_vpc.main.id   # Implicit dependency 
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.subnet_cidr[subnet1]
    map_public_ip_on_launch = true
   availability_zone = var.availability_zone
   tags = {
-    Name = "mohitsubnet"
+    Name = var.subnet_name[0]
+  }
+
+  depends_on = [ aws_vpc.main ] # explict dependency 
+}
+
+resource "aws_subnet" "meet" {
+  vpc_id = aws_vpc.main.id   # Implicit dependency 
+  cidr_block = var.subnet_cidr[subnet2]
+   map_public_ip_on_launch = true
+  availability_zone = var.availability_zone
+  tags = {
+    Name = var.subnet_name[1]
   }
 
   depends_on = [ aws_vpc.main ] # explict dependency 
