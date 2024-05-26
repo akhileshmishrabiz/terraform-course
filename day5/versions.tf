@@ -1,6 +1,11 @@
+# amazon linux machine
+# sudo yum install -y yum-utils shadow-utils
+# sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+# sudo yum -y install terraform
+# terraform --version
 
 terraform {
-  required_version = "1.6.0"
+  required_version = "1.8.4"
   required_providers {
     aws = {
       source = "hashicorp/aws"
